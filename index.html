@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Chat Embed</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <div class="control-group">
+                <label for="streamer-input">Twitch Username:</label>
+                <input type="text" id="streamer-input" placeholder="Enter Username" value="twitchusername">
+                <button id="load-chat-btn">Load Chat</button>
+            </div>
+            <div class="control-group">
+                <label for="theme-selector">Theme:</label>
+                <select id="theme-selector">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="cozy">Cozy</option>
+                </select>
+            </div>
+            <div class="control-group">
+                 <label for="bg-color-picker">Chat BG Color:</label>
+                 <input type="color" id="bg-color-picker" value="#ffffff">
+             </div>
+             <div class="control-group info-only">
+                 <label for="font-size-slider">Font Size (Info Only):</label>
+                 <input type="range" id="font-size-slider" min="10" max="24" value="14" step="1">
+                 <span id="font-size-value">14px</span>
+             </div>
+             <div class="control-group info-only">
+                 <label for="text-color-picker">Text Color (Info Only):</label>
+                 <input type="color" id="text-color-picker" value="#333333">
+             </div>
+             <p class="info-text">Note: Font Size & Text Color controls cannot directly style the embedded Twitch chat due to security limits.</p>
+        </div>
+
+        <div class="chat-container" id="chat-wrapper">
+            <iframe
+                id="twitch-chat-iframe"
+                frameborder="0"
+                scrolling="yes"
+                src="about:blank" width="100%"
+                height="100%">
+            </iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
