@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
              twitchChatIframe.src = 'about:blank';
             return;
         }
-        const chatUrl = `https://www.twitch.tv/popout/${streamerName.trim()}/chat?popout=`;
+        const chatUrl = `https://www.twitch.tv/embed/${streamerName.trim()}/chat?parent=https://www.twitch.tv/${streamerName.trim()}`;
         twitchChatIframe.src = chatUrl;
     }
 
