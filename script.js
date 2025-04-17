@@ -19,13 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to load Twitch chat
     function loadTwitchChat(streamerName) {
         if (!streamerName || streamerName.trim() === '') {
-            // Optionally alert the user or handle the empty case
             console.warn("Streamer name is empty.");
-             // Keep the iframe blank or show a placeholder message
-             twitchChatIframe.src = 'about:blank';
+            twitchChatIframe.src = 'about:blank';
             return;
         }
-        const chatUrl = `https://www.twitch.tv/embed/${streamerName.trim()}/chat?parent=https://www.twitch.tv/${streamerName.trim()}`;
+        const chatUrl = `https://www.twitch.tv/embed/${streamerName.trim()}/chat?parent=github.com/irbala/chat`;
         twitchChatIframe.src = chatUrl;
     }
 
