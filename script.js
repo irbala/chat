@@ -23,7 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
             twitchChatIframe.src = 'about:blank';
             return;
         }
-        const chatUrl = `https://www.twitch.tv/embed/${streamerName.trim()}/chat?parent=github.com/irbala/chat`;
+        // Twitch only accepts the bare domain of the embedding page as "parent"
+        const params = new URLSearchParams({ parent: window.location.hostname });
+        if (themeSelector.value === 'dark') {
+            params.append('darkpopout', '');
+        }
+        const chatUrl = `https://www.twitch.tv/embed/${encodeURIComponent(streamerName.trim())}/chat?${params}`;
         twitchChatIframe.src = chatUrl;
     }
 
@@ -129,16 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Change theme
     themeSelector.addEventListener('change', () => {
         applyTheme(themeSelector.value);
+        loadTwitchChat(streamerInput.value); // Reload so the chat itself picks up the dark theme
         savePreferences(); // Save theme preference
     });
 
     // Change background color of the chat container
-    bgColorPicker.addEventListener('input', () => {
-        updateChatWrapperBackground();
-        // Debounce saving slightly or save on change event if input is too frequent
-        // For simplicity, saving on 'input' here
-        savePreferences();
-    });
+    bgColorPicker.addEventListener('input', updateChatWrapperBackground);
+    bgColorPicker.addEventListener('change', savePreferences); // Save final value
 
      // Update font size display (Info Only)
      fontSizeSlider.addEventListener('input', updateFontSizeDisplay);
