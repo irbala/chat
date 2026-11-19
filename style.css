@@ -92,7 +92,7 @@ body {
 }
 .control-group.info-only label,
 .control-group.info-only span {
-    color: #888; /* Dim the labels for info-only controls */
+    color: #6b6b6b; /* Dim the labels for info-only controls (still 4.5:1 on white) */
 }
 
 
@@ -143,13 +143,13 @@ body.theme-cozy { background-color: #fdf6e3; color: #657b83; }
 .theme-cozy .controls { background-color: #fdf6e3; border-bottom: 1px solid #eee8d5; color: #586e75; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
 .theme-cozy .controls input, .theme-cozy .controls select { border: 1px solid #cdc8b8; background-color: #fff; color: #586e75; }
 .theme-cozy .controls input[type="color"] { background-color: #fff; }
-.theme-cozy .controls button { background-color: #268bd2; } /* Solarized Blue */
-.theme-cozy .controls button:hover { background-color: #1a6b9f; }
-.theme-cozy .info-text { color: #93a1a1; }
+.theme-cozy .controls button { background-color: #1f6fa8; } /* Deeper Solarized blue, 4.5:1 with white text */
+.theme-cozy .controls button:hover { background-color: #185a88; }
+.theme-cozy .info-text { color: #586e75; }
 /* .theme-cozy .chat-container { background-color: #fdf6e3; } -> Handled by color picker now */
 .theme-cozy .control-group.info-only label,
 .theme-cozy .control-group.info-only span {
-    color: #93a1a1;
+    color: #586e75;
 }
 
 /* Simple Responsiveness for controls */
@@ -186,4 +186,17 @@ body.theme-cozy { background-color: #fdf6e3; color: #657b83; }
          width: 50px; /* Fixed width for color picker */
          height: 30px;
      }
+}
+
+/* Hidden on screen, still read by screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
