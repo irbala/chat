@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <main class="container">
+        <h1 class="visually-hidden">Twitch Chat Viewer</h1>
         <div class="controls">
             <div class="control-group">
                 <label for="streamer-input">Twitch Username:</label>
@@ -41,13 +42,14 @@
         <div class="chat-container" id="chat-wrapper">            
             <iframe
                 id="twitch-chat-iframe"
+                title="Twitch chat"
                 frameborder="0"
                 scrolling="yes"
                 src="about:blank" width="100%"
                 height="100%">
             </iframe>
         </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
